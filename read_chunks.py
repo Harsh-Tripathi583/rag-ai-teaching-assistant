@@ -2,6 +2,7 @@ import requests
 import os
 import json
 import pandas as pd
+import joblib
 
 # 🔥 Use stable embedding model
 MODEL_NAME = "nomic-embed-text"
@@ -85,6 +86,5 @@ for json_file in jsons:
 df = pd.DataFrame.from_records(my_dicts)
 
 print("\n✅ DONE")
-print(df.head())
-incoming_query = input("Ask a Question")
-query_embedding = create_embedding([incoming_query])[0]
+
+joblib.dump(df, 'embeddings.joblib')
