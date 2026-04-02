@@ -37,10 +37,33 @@ top_results = 15
 max_indx = similarities.argsort()[::-1][0:top_results]
 #print(max_indx)
 new_df = df.loc[max_indx] 
-prompt = f'''{new_df[["title","number","start","end","text"]].to_json()} 
+""" prompt = f'''{new_df[["title","number","start","end","text"]].to_json()} 
 -----------------------------------
 "{incoming_query}"
-user asked this question related to the data that was provided like pdf's videos and more if the user asks unrelated question,tell hiim that you can only answer questions related to the data that was provided'''
+user asked this question related to the data that was provided like pdf's videos and more 
+if the user asks unrelated question,tell hiim that you can only answer questions related to 
+the data that was provided''' """
+prompt = f"""
+You are an intelligent and precise AI assistant designed to answer questions strictly based on provided context.
+
+--------------------- CONTEXT ---------------------
+{new_df[["title","number","start","end","text"]].to_json()}
+---------------------------------------------------
+
+User Question:
+{incoming_query}
+
+Instructions:
+1. Answer ONLY using the information from the provided context.
+2. Do NOT use outside knowledge.
+3. If the answer is not present in the context, respond with:
+   "I don't know based on the provided data."
+4. Be clear, concise, and structured.
+5. If possible, summarize the answer in bullet points.
+6. Do NOT hallucinate or make assumptions.
+
+Answer:
+"""
 #print(new_df[["title", "number", "text"]])
 response = inference(prompt)["response"]
 print(response)
