@@ -1,9 +1,1 @@
-Based on the provided context, here is the answer:
-
-The concept of box model in CSS is described as follows:
-
-* Padding
-* Border
-* Margin are outside your content.
-
-I don't have more information about the box model from the provided data.
+SQL stands for Structured Query Language. It is a standard programming language used to communicate with and manipulate databases. SQL is commonly used to perform operations such as inserting new records (CREATE), retrieving data (SELECT), modifying existing data (UPDATE), and removing records (DELETE). These operations are usually referred to as CRUD Operations, which stand for Create, Read, Update, and Delete.

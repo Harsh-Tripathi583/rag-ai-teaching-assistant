@@ -5,7 +5,7 @@ import joblib
 import requests
 import json
 
-
+#.venv\Scripts\activate
 def create_embedding(text_list):
     r = requests.post("http://localhost:11434/api/embed", json={
         "model": "nomic-embed-text",
@@ -47,20 +47,17 @@ prompt = f"""
 You are an intelligent and precise AI assistant designed to answer questions strictly based on provided context.
 
 --------------------- CONTEXT ---------------------
-{new_df[["title","number","start","end","text"]].to_json()}
+{"\n\n".join(new_df["text"].tolist())}
 ---------------------------------------------------
 
 User Question:
 {incoming_query}
 
 Instructions:
-1. Answer ONLY using the information from the provided context.
-2. Do NOT use outside knowledge.
-3. If the answer is not present in the context, respond with:
-   "I don't know based on the provided data."
-4. Be clear, concise, and structured.
-5. If possible, summarize the answer in bullet points.
-6. Do NOT hallucinate or make assumptions.
+- Answer using the context.
+- Answer the question naturally using the provided context.Do not mention "context" in your answer.
+- If incomplete, say "Based on my general knowledge..." and continue.
+- Be clear and structured.
 
 Answer:
 """
