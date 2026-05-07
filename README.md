@@ -184,7 +184,13 @@ streamlit run app.py
 
 ## Chat Interface
 
-*Add screenshots here*
+## Chat Interface
+
+![Chat UI](images/example-1.png)
+
+## Example 2
+
+![Example](images/example-2.png)
 
 ---
 
