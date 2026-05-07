@@ -45,7 +45,7 @@ def get_answer(incoming_query):
         [question_embedding]
     ).flatten()
 
-    threshold = 0.6
+    threshold = 0.8
 
     filtered_indices = np.where(similarities >= threshold)[0]
 

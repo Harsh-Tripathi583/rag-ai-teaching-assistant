@@ -4,11 +4,11 @@ from rag_pipeline import get_answer
 # PAGE CONFIG
 st.set_page_config(
     page_title="AI Teaching Assistant",
-    page_icon="📚",
+    page_icon="💀",
     layout="wide"
 )
 
-st.title("📚 AI Teaching Assistant")
+st.title("💀 AI Teaching Assistant")
 
 # CHAT HISTORY
 if "messages" not in st.session_state:
