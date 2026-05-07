@@ -95,20 +95,22 @@ graph LR
 
 # 📂 Project Structure
 
+# 📂 Project Structure
+
 ```text
-rag-ai-teaching-assistant/
+RAG-BASED Project/
 │
-├── app.py                 # Streamlit UI
-├── rag_pipeline.py        # Main RAG pipeline
-├── utils.py               # Embedding + inference functions
-├── preprocessing.py       # Data preprocessing
+├── app.py
+├── rag_pipeline.py
+├── read_chunks.py
+├── pdf_to_json.py
+├── process_videos.py
+├── speech_to_text.py
 ├── requirements.txt
+├── README.md
 ├── .gitignore
 │
-├── data/
-│
-└── embeddings/
-    └── embeddings.joblib
+├── jsons/
 ```
 
 ---
