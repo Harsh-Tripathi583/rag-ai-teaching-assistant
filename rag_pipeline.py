@@ -45,10 +45,21 @@ def get_answer(incoming_query):
         [question_embedding]
     ).flatten()
 
-    top_results = 7
-    max_indx = similarities.argsort()[::-1][:top_results]
+    threshold = 0.6
 
-    new_df = df.loc[max_indx]
+    filtered_indices = np.where(similarities >= threshold)[0]
+
+    if len(filtered_indices) == 0:
+        return "I could not find this information in the provided study material."
+
+    sorted_indices = filtered_indices[
+        similarities[filtered_indices].argsort()[::-1]
+    ]
+
+    top_results = 10
+    top_indices = sorted_indices[:top_results]
+
+    new_df = df.loc[top_indices]
 
     prompt = f"""
 You are an intelligent AI teaching assistant.
@@ -61,9 +72,10 @@ User Question:
 {incoming_query}
 
 Instructions:
-- Answer only from the provided context.
-- If answer is not present, say:
-"I could not find this information in the provided study material."
+- Answer ONLY using the provided context.
+- If the answer is not found in the context, say:
+  "I could not find this information in the provided study material."
+- Do not use outside knowledge.
 - Be clear and structured.
 
 Answer:
