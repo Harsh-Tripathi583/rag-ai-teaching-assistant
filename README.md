@@ -1,4 +1,4 @@
-# 📚 RAG-Based AI Teaching Assistant
+#  RAG-Based AI Teaching Assistant
 
 A Retrieval-Augmented Generation (RAG) based AI Teaching Assistant built using Python, Ollama, Streamlit, and semantic search.
 
@@ -6,66 +6,54 @@ This project answers questions from custom study materials by retrieving relevan
 
 ---
 
-# 🚀 Features
+#  Features
 
-* 🔍 Semantic search using embeddings
-* 🧠 Local LLM inference using Ollama
-* 💾 Local embedding storage using Joblib
-* 📚 Context-aware question answering
-* ⚡ Similarity-based retrieval with cosine similarity
-* 🎯 Threshold filtering to reduce hallucinations
-* 💬 Streamlit-based ChatGPT-like UI
-* 🏠 Fully local execution (No paid APIs required)
+*  Semantic search using embeddings
+*  Local LLM inference using Ollama
+*  Local embedding storage using Joblib
+*  Context-aware question answering
+*  Similarity-based retrieval with cosine similarity
+*  Threshold filtering to reduce hallucinations
+*  Streamlit-based ChatGPT-like UI
+*  Fully local execution (No paid APIs required)
 
 ---
 
-# 🧠 How It Works
+#  How It Works
 
 The system follows a Retrieval-Augmented Generation (RAG) pipeline:
 
-```text
-User Question
-      ↓
-Create Query Embedding
-      ↓
-Compare Against Stored Embeddings
-      ↓
-Retrieve Most Relevant Chunks
-      ↓
-Send Context + Query to LLM
-      ↓
-Generate Final Response
+```mermaid
+graph TD
+    A[User Question] --> B[Create Query Embedding]
+    B --> C[Compare Against Stored Embeddings]
+    C --> D[Retrieve Relevant Chunks]
+    D --> E[Send Context + Query to LLM]
+    E --> F[Generate Final Response]
 ```
 
 ---
 
-# 🏗️ Project Architecture
+#  Project Architecture
 
-```text
-Study Materials
-      ↓
-Text Chunking
-      ↓
-Embedding Generation
-(nomic-embed-text)
-      ↓
-Store Embeddings Locally
-(joblib)
-      ↓
-User Query
-      ↓
-Cosine Similarity Retrieval
-      ↓
-Top-K Context Retrieval
-      ↓
-Llama 3.2 via Ollama
-      ↓
-Generated Response
+```mermaid
+graph LR
+    A[Study Materials] --> B[Text Chunking]
+    B --> C[Embedding Generation - nomic-embed-text]
+    C --> D[Store Embeddings - joblib]
+
+    E[User Query] --> F[Query Embedding]
+    F --> G[Cosine Similarity Search]
+
+    D --> G
+    G --> H[Top-K Retrieval]
+    H --> I[Llama 3.2 via Ollama]
+    I --> J[Generated Response]
 ```
 
 ---
 
-# 🛠️ Tech Stack
+#  Tech Stack
 
 ## Frontend
 
@@ -125,7 +113,7 @@ rag-ai-teaching-assistant/
 
 ---
 
-# ⚙️ Installation & Setup
+#  Installation & Setup
 
 ## 1. Clone Repository
 
@@ -180,7 +168,7 @@ streamlit run app.py
 
 ---
 
-# 📸 Screenshots
+#  Screenshots
 
 ## Chat Interface
 
@@ -194,7 +182,7 @@ streamlit run app.py
 
 ---
 
-# 🔍 Retrieval Strategy
+#  Retrieval Strategy
 
 The project uses:
 
@@ -222,7 +210,7 @@ These limitations motivated the development of Version 2.
 
 ---
 
-# 🔮 Planned Improvements (V2)
+#  Planned Improvements (V2)
 
 * PDF-only knowledge system
 * FAISS vector database
@@ -235,7 +223,7 @@ These limitations motivated the development of Version 2.
 
 ---
 
-# 📚 Key Concepts Used
+#  Key Concepts Used
 
 * Retrieval-Augmented Generation (RAG)
 * Embeddings
@@ -248,7 +236,7 @@ These limitations motivated the development of Version 2.
 
 ---
 
-# 💡 Learning Outcomes
+#  Learning Outcomes
 
 Through this project, I explored:
 
